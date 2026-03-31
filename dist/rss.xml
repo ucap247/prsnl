@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>capaul.com</title>
+    <description>A modern website built with Astro and Tailwind CSS</description>
+    <link>https://example.com</link>
+    <atom:link href="https://example.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 31 Mar 2026 19:44:18 GMT</lastBuildDate>
+    <item>
+      <title>My very first blog bost</title>
+      <link>https://example.com/blog/hello-from-capaulcom/</link>
+      <guid>https://example.com/blog/hello-from-capaulcom/</guid>
+      <description>Saying hello to everybody.</description>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Urs Capaul</author>
+      <category>personal</category>
+        <category>homelab</category>
+        <category>proxmox</category>
+    </item>
+    <item>
+      <title>Welcome to CAPAUL.COM</title>
+      <link>https://example.com/blog/welcome-to-velocity/</link>
+      <guid>https://example.com/blog/welcome-to-velocity/</guid>
+      <description>Get started with Velocity, the modern Astro boilerplate with everything you need to build fast, beautiful websites.</description>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <author>Urs Capaul</author>
+      <category>astro</category>
+        <category>tutorial</category>
+        <category>getting-started</category>
+    </item>
+  </channel>
+</rss>

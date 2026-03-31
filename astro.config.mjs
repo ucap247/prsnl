@@ -5,8 +5,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://ucap247.github.io',
-  base: '/prsnl'
+  site: process.env.SITE_URL || 'https://example.com',
 
   env: {
     schema: {

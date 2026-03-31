@@ -1,0 +1,16 @@
+{
+  "name": "capaul.com",
+  "short_name": "capaul.com",
+  "description": "A modern website built with Astro and Tailwind CSS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F94C10",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
