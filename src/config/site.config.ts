@@ -50,22 +50,22 @@ export interface SiteConfig {
 
 const siteConfig: SiteConfig = {
   name: 'capaul.com',
-  description: 'A modern website built with Astro and Tailwind CSS',
+  description: '',
   url: SITE_URL || 'https://capaul.com',
   ogImage: '/og-default.png',
-  author: 'Urs Capaul',
+  author: '',
   // Demo contact info - replace with your actual business details
-  email: 'website@capaul.com',
-  phone: '+41 (058) 111 2233',
+  email: '',
+  phone: '',
   address: {
-    street: 'Street 1',
-    city: 'Zurich',
-    state: 'ZH',
-    zip: '8000',
-    country: 'CH',
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: '',
   },
   socialLinks: [
-    'https://github.com/southwellmedia',
+    'https://github.com/ucap247',
   ],
   // Twitter metadata - update with your actual handles or remove
   // twitter: {
