@@ -1,21 +1,13 @@
 ---
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import { Hero } from '@/components/hero';
-import Button from '@/components/ui/form/Button/Button.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
-import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import SocialProof from '@/components/ui/marketing/SocialProof/SocialProof.astro';
-import { TerminalDemo } from '@/components/ui/marketing/TerminalDemo';
 import TechStack from '@/components/landing/TechStack.astro';
-import FeatureTabs from '@/components/landing/FeatureTabs.tsx';
-import LighthouseScores from '@/components/landing/LighthouseScores.astro';
-import Credibility from '@/components/landing/Credibility.astro';
-import CTA from '@/components/landing/CTA.astro';
 ---
 
 <LandingLayout
-  title="The Complete Astro Starter"
-  description="Design tokens, accessible components, SEO, and i18n configured from the first commit. Velocity ships what other starters leave as homework."
+  title="capaul.com"
+  description="capaul.com website"
 >
   <Hero layout="centered" size="lg" showGrid showBlob blobPosition="right">
     <Badge slot="badge" pill pulse>capaul.com is finally live</Badge>
@@ -25,24 +17,10 @@ import CTA from '@/components/landing/CTA.astro';
     </h1>
 
     <p slot="description">
-      Design tokens, accessible components, SEO, and i18n configured from the first commit. Velocity
-      ships what other starters leave as homework.
+      Family website for personal use (and your eyes) only.
     </p>
-
-    <Fragment slot="actions">
-      <Button
-        size="lg"
-        variant="outline"
-        href="https://github.com"
-        target="_blank"
-      >
-        <Icon name="github" size="sm" />
-        View on GitHub
-      </Button>
-    </Fragment>
 
   </Hero>
 
   <TechStack />
-  <FeatureTabs client:visible />
 </LandingLayout>

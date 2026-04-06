@@ -9,34 +9,19 @@ interface TabContent {
 
 const tabContent: Record<string, TabContent> = {
   theming: {
-    title: 'Design Tokens & Dark Mode',
+    title: 'Head Automation Chief (HAC)',
     content:
-      "Complete design system using Tailwind v4's CSS-first configuration with built-in dark mode. Semantic color tokens, system preference detection, and localStorage persistence.",
+      "Making machines do the boring stuff so humans can take the credit — and the coffee breaks.",
   },
   seo: {
-    title: 'Automated SEO Handling',
+    title: 'Automated Chaos Handler (ACH)',
     content:
-      'Strictly typed metadata injection for every page with automatic OG image generation. Includes sitemap, robots.txt, and JSON-LD structured data.',
+      'Quietly detecting, managing, and resolving daily disasters before anyone else even realizes there was chaos',
   },
   perf: {
-    title: 'Zero JS by Default',
+    title: 'Relentless Learning Machine (RLM)',
     content:
-      "Astro's island architecture ensures your pages ship 0kb of JavaScript unless explicitly interactive. Optimized for Core Web Vitals.",
-  },
-  components: {
-    title: 'Type-Safe Components',
-    content:
-      'TypeScript-first UI primitives with full prop validation and IDE autocompletion. Includes buttons, inputs, cards, modals, and more.',
-  },
-  i18n: {
-    title: 'i18n Ready',
-    content:
-      'Add multi-language support with the --i18n flag. Includes type-safe translations, automatic locale detection, and SEO-friendly URL structures.',
-  },
-  content: {
-    title: 'Content & Search',
-    content:
-      'Type-safe content collections with Zod schemas, MDX support, RSS feeds, and Pagefind integration for lightning-fast static search.',
+      "Absorbs knowledge at lightning speed and somehow still has energy left to ask one more question.",
   },
 };
 
@@ -46,159 +31,19 @@ const codeExamples: Record<
 > = {
   theming: {
     lang: 'css',
-    code: `/* src/styles/themes/default.css — swap this file to re-theme */
-:root {
-  /* Semantic Tokens - Light Mode */
-  --background: var(--gray-0);
-  --foreground: var(--gray-900);
-  --border: var(--gray-200);
-  --primary: var(--gray-900);
-  --primary-foreground: var(--gray-0);
-  --accent: var(--brand-500);
-  --card: var(--gray-0);
-  --ring: var(--gray-900);
-}
-
-/* Dark Mode */
-.dark {
-  --background: var(--gray-950);
-  --foreground: var(--gray-50);
-  --border: var(--gray-800);
-  --primary: var(--gray-0);
-  --primary-foreground: var(--gray-900);
-}`,
-    filename: 'src/styles/themes/default.css',
+    code: `echo "Where is my keyboard?!";`,
+    filename: 'src/family/father',
   },
   seo: {
-    lang: 'astro',
-    code: `---
-// src/components/seo/SEO.astro
-import siteConfig from '@/config/site.config';
-
-interface Props {
-  title?: string;
-  description?: string;
-  image?: string;
-}
-
-const { title, description, image } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-// Auto-generate OG image if none provided
-const ogImage = image || \`/og/\${Astro.url.pathname}.png\`;
----
-
-<title>{title}</title>
-<meta name="description" content={description} />
-<link rel="canonical" href={canonicalURL.toString()} />
-<meta property="og:title" content={title} />
-<meta property="og:image" content={ogImage} />`,
-    filename: 'src/components/seo/SEO.astro',
+    lang: 'css',
+    code: `echo "Where are my students?!";`,
+    filename: 'src/family/mother',
   },
   perf: {
-    lang: 'astro',
-    code: `---
-// src/pages/index.astro
-import LandingLayout from '@/layouts/LandingLayout.astro';
-import { Hero } from '@/components/hero';
-import { TerminalDemo } from '@/components/ui/marketing/TerminalDemo';
-import FeatureTabs from '@/components/landing/FeatureTabs.tsx';
-import TechStack from '@/components/landing/TechStack.astro';
----
-
-<!-- Static Astro components - ships 0kb JS -->
-<Hero layout="split" size="lg">
-  <!-- React component - hydrates immediately -->
-  <TerminalDemo slot="aside" client:load />
-</Hero>
-
-<!-- Static HTML, no JS -->
-<TechStack />
-
-<!-- React component - hydrates when scrolled into view -->
-<FeatureTabs client:visible />`,
-    filename: 'src/pages/index.astro',
-  },
-  components: {
-    lang: 'typescript',
-    code: `// src/components/ui/form/Button/Button.tsx
-import { type Ref } from 'react';
-import { cn } from '@/lib/cn';
-import { isExternalUrl } from '@/lib/utils';
-import { buttonVariants, type ButtonVariants } from './button.variants';
-
-interface BaseProps {
-  ref?: Ref<HTMLButtonElement | HTMLAnchorElement>;
-  variant?: ButtonVariants['variant'];
-  size?: ButtonVariants['size'];
-  loading?: boolean;
-  href?: string;
-  children: React.ReactNode;
-}
-
-export function Button({ ref, variant = 'primary', size = 'md', href, ...rest }: BaseProps) {
-  const classes = cn(buttonVariants({ variant, size }), rest.className);
-  const isExternal = href ? isExternalUrl(href) : false;
-
-  if (href) {
-    return <a ref={ref} href={href} className={classes} target={isExternal ? '_blank' : undefined} />;
-  }
-  return <button ref={ref} className={classes} {...rest} />;
-}`,
-    filename: 'src/components/ui/form/Button/Button.tsx',
-  },
-  i18n: {
-    lang: 'typescript',
-    code: `// src/i18n/config.ts (with --i18n flag)
-export const languages = {
-  en: 'English',
-  es: 'Español',
-  fr: 'Français',
-} as const;
-
-export const defaultLang = 'en';
-
-// src/i18n/translations/en.ts
-export default {
-  'nav.home': 'Home',
-  'nav.about': 'About',
-  'hero.title': 'Ship faster with Velocity',
-  'hero.subtitle': 'The modern Astro starter',
-} as const;
-
-// Usage in components
-import { t } from '@/i18n';
-const title = t('hero.title'); // "Ship faster..."`,
-    filename: 'src/i18n/config.ts',
-  },
-  content: {
-    lang: 'typescript',
-    code: `// src/content.config.ts
-import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
-
-const blog = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: ({ image }) =>
-    z.object({
-      title: z.string().max(100),
-      description: z.string().max(200),
-      publishedAt: z.coerce.date(),
-      updatedAt: z.coerce.date().optional(),
-      author: z.string().default('Team'),
-      image: image().optional(),
-      tags: z.array(z.string()).default([]),
-      featured: z.boolean().default(false),
-      draft: z.boolean().default(false),
-      locale: z.enum(['en', 'es', 'fr']).default('en'),
-    }),
-});
-
-export const collections = { blog, pages, authors, faqs };
-// + Pagefind indexes all content at build time`,
-    filename: 'src/content.config.ts',
-  },
+    lang: 'css',
+    code: `echo "Where are my books?!";`,
+    filename: 'src/family/daughter',
+  },  
 };
 
 // Simple syntax highlighter
@@ -420,17 +265,9 @@ function CodeBlock({ code, filename, lang }: { code: string; filename: string; l
 
 // Tab definitions with icons for VerticalTabs
 const tabs: VerticalTab[] = [
-  { id: 'theming', label: 'Theming', description: 'Design tokens & dark mode', icon: Palette },
-  { id: 'seo', label: 'SEO & Meta', description: 'OG images & structured data', icon: Search },
-  { id: 'perf', label: 'Performance', description: 'Zero JS by default', icon: Zap },
-  {
-    id: 'components',
-    label: 'Components',
-    description: 'Type-safe UI primitives',
-    icon: LayoutGrid,
-  },
-  { id: 'i18n', label: 'i18n Ready', description: 'Optional multi-language', icon: Globe },
-  { id: 'content', label: 'Content', description: 'Blog, MDX & search', icon: Newspaper },
+  { id: 'theming', label: 'U', description: 'Fathr', icon: Search },
+  { id: 'seo', label: 'T', description: 'Mothr', icon: Search },
+  { id: 'perf', label: 'L', description: 'Daugthr', icon: Search },
 ];
 
 export function FeatureTabs() {
@@ -463,13 +300,12 @@ export function FeatureTabs() {
         {/* Header */}
         <div className="mb-[var(--space-section-header)]">
           <h2 className="font-display text-foreground text-3xl font-bold md:text-4xl">
-            Everything you need.
+            capaul.com: everything you need.
             <br />
-            <span className="text-brand-500">Nothing you don't.</span>
+            <span className="text-brand-500">nothing you don't.</span>
           </h2>
           <p className="text-foreground-muted mt-4 max-w-2xl text-lg">
-            We stripped away the bloat and kept the primitives that actually speed up development
-            for agencies and freelancers.
+            Get in touch with us.
           </p>
         </div>
 
